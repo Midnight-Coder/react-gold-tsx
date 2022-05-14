@@ -1,0 +1,8 @@
+{
+  "clearMocks": true,
+  "errorOnDeprecated": true,
+  "resetMocks": true,
+  "restoreMocks": true,
+  "transformIgnorePatterns": ["<rootDir>/node_modules/"],
+  "verbose": true
+}
