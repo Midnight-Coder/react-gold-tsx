@@ -12,6 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import logo from 'assets/logo.png';
+import logoSm from 'assets/logoSm.png';
 import { SideNavCtx } from 'components/Layouts/Borders';
 import React from 'react';
 import NavTree from 'utils/NavTree';
@@ -34,7 +35,9 @@ export default function SideNav() {
       <Toolbar>
         <Grid container justifyContent='space-between'>
           <Grid item xs={9}>
-            <img height={theme.custom.appBarHeight} src={logo} alt='' />
+            {isFullNav
+              ? (<img height={theme.custom.appBarHeight} src={logo} alt='' />)
+              : (<img src={logoSm} alt='' />)}
           </Grid>
           {setIsFullNav ? (
             <Grid item xs={3}>

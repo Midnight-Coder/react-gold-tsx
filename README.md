@@ -16,6 +16,7 @@
 3. `mkcert --install` [GH](https://github.com/FiloSottile/mkcert)
 4. `npm i`
 5. `npm run start`
+6. Add Auth0 keys to `.env.development.local` file
 
 ### Make it our own
 
@@ -29,7 +30,9 @@
    2. Favicon in index.html 
    3. manifest.json
    4. src/assets/branding.png: Image for Login/Sign Up Page
-   5. src/assets/logo.png: Image for nav bar
-   6. src/assets/missing-page.jpeg: Image for HTTP 404
+   5. src/assets/logo.png: Image for nav bar (full width)
+   6. src/assets/logoSm.png: Image for collapsed nav bar (32x32)
+   7. src/assets/missing-page.jpeg: Image for HTTP 404
 3. Footer: Update `BrandingBorder.tsx`
 4. Colors, Fonts, spacing etc. - Update `theme.ts`
+5. Add Auth0 keys to `.env` and `.env.development.local` files
