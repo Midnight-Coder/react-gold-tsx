@@ -1,5 +1,7 @@
 # React Gold.tsx
 
+![image](https://user-images.githubusercontent.com/2917027/168412960-87809a0b-a8cc-4521-91bf-e2cf7d4018ab.png)
+
 ### Stack: React, Material UI { using ts(x) }
 
 1. React app bootstrapped with CRA
