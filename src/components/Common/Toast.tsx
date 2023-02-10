@@ -5,7 +5,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 
 
-export default function Toast({ message, type = 'success' }) {
+interface Props {
+  message: string;
+  type: 'success' | 'error' | 'info' | 'warn';
+}
+
+export default function Toast({ message, type = 'success' }: Props) {
   const [isOpen, toggleOpen] = React.useState(true);
   return (
     <Snackbar
