@@ -1,0 +1,32 @@
+name: Sanity
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 18.9.1
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.9.1
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Run Build
+        run: npm run build
