@@ -25,6 +25,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "ci": "CI=true react-scripts test",
     "lint": "eslint .",
     "start": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem REACT_APP_ENV=DEV PORT=4040 react-scripts start",
     "test": "react-scripts test"
