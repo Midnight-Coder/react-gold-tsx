@@ -1,15 +1,14 @@
-# React Gold.tsx
+# GOGO
 
-![image](https://user-images.githubusercontent.com/2917027/168412960-87809a0b-a8cc-4521-91bf-e2cf7d4018ab.png)
+Frontend to power the console
 
-### Stack: React, Material UI { using ts(x) }
+Named after the legendary Crime Master - Gogo.
 
-1. React app bootstrapped with CRA
-2. Material UI using emotion for style composition
-3. SSL support + SSL setup for local dev
-4. Auth0 integration for SSO authentication
-5. Navigation tree setup
-6. Respect system's dark/light mode
+<img src="https://github.com/supercmo/gogo/assets/2917027/817504e9-c2a6-4c0e-b00a-47c33dde9d3e" width="500px" />
+
+
+### Stack: 
+React, Material UI { using ts(x) }
 
 ### Getting started
 
