@@ -7,9 +7,13 @@ import { auth } from 'utils/spaUrls';
 
 export default function Logout() {
   const { logout } = useAuth0();
+  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || '';
   const onLogout = React.useCallback(() => {
     localStorage.clear();
-    logout({ returnTo: `${window.location.origin}${auth.login}` });
+    logout({
+      clientId,
+      logoutParams: { returnTo: `${window.location.origin}${auth.login}` },
+    });
   }, [logout]);
 
   return (

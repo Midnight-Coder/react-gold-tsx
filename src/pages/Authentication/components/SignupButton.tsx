@@ -9,7 +9,7 @@ export default function SignupButton() {
     <Button
       color='primary'
       disabled
-      onClick={() => loginWithRedirect({ screen_hint: 'signup' })}
+      onClick={() => loginWithRedirect()}
     >
       Sign Up
     </Button>

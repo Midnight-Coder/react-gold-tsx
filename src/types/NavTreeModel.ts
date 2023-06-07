@@ -1,9 +1,9 @@
-import { SvgIconProps } from '@mui/material/SvgIcon';
+import { SvgIconComponent } from '@mui/icons-material';
 
 
 type NavItemModel = {
   name: string;
-  icon: (props: SvgIconProps) => JSX.Element;
+  Icon: SvgIconComponent;
   spaUrl: string;
 }
 

@@ -6,7 +6,7 @@ import * as spaUrl from 'utils/spaUrls';
 const NavTree: NavTreeModel = [
   {
     name: 'Landing Page',
-    icon: Anchor,
+    Icon: Anchor,
     spaUrl: spaUrl.homepage,
   },
 ];

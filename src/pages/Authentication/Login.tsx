@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import brandingImg from 'assets/branding.png';
+import brandingImg from 'assets/branding.svg';
 import PageHeader from 'components/Common/PageHeader';
 import Spinner from 'components/Common/Spinner';
 import SignupButton from 'pages/Authentication/components/SignupButton';
@@ -31,7 +31,7 @@ export default function Login() {
   }
   return (
     <>
-      <PageHeader title='React Gold' subtitle='Now in .ts(x)' />
+      <PageHeader title='SuperCMO' subtitle='Automate Your Marketing With AI' />
       <Box mt='3%' mb='10px' />
       <Grid container spacing={2} justifyContent='space-between'>
         <Grid item xs={10} sm={5} lg={3}>

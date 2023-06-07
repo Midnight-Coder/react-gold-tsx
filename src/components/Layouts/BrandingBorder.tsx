@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import logo from 'assets/logo.png';
+import logo from 'assets/logo.svg';
 import React from 'react';
 
 
