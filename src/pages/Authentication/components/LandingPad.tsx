@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import Spinner from 'components/Common/Spinner';
-import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { CacheKeys } from 'utils/constants';
 import { homepage } from 'utils/spaUrls';

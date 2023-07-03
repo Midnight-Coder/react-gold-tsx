@@ -1,9 +1,8 @@
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import React from 'react';
-import pageImage from 'assets/error-404.jpg';
-import Grid from '@mui/material/Grid';
 import Home from '@mui/icons-material/Home';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import pageImage from 'assets/error-404.jpg';
 import { homepage } from 'utils/spaUrls';
 
 

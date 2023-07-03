@@ -14,7 +14,7 @@ export default function Logout() {
       clientId,
       logoutParams: { returnTo: `${window.location.origin}${auth.login}` },
     });
-  }, [logout]);
+  }, [clientId, logout]);
 
   return (
     <MenuItem onClick={onLogout}><Typography color='primary'>Logout</Typography></MenuItem>

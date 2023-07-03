@@ -1,9 +1,8 @@
 import BrandingBorder from 'components/Layouts/BrandingBorder';
 import Login from 'pages/Authentication/Login';
-import LandingPad from 'pages/Authentication/components/LandingPad';
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
 import Logout from 'pages/Authentication/Logout';
+import LandingPad from 'pages/Authentication/components/LandingPad';
+import { Route, Routes } from 'react-router-dom';
 
 
 export default function Router() {

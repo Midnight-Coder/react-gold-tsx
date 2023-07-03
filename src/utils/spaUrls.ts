@@ -4,4 +4,8 @@ export const auth = {
   logout: '/auth/logout',
 };
 
+export const connections = {
+  list: '/connections/list',
+};
+
 export const homepage = '/welcome';

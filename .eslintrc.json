@@ -47,13 +47,15 @@
         { "blankLine": "always", "prev": "*", "next": "export" },
         { "blankLine": "never", "prev": "*", "next": "import" }
       ],
-      "react/require-default-props":["off"],
+      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/rules-of-hooks": "error",
       "react/destructuring-assignment": ["off"],
       "react/jsx-filename-extension": ["error", { "extensions": [".js", ".tsx"]}],
+      "react/jsx-uses-react": "off",
+      "react/no-unescaped-entities": "warn",
       "react/prop-types": ["off"],
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "react/no-unescaped-entities": "warn"
+      "react/react-in-jsx-scope": "off",
+      "react/require-default-props":["off"]
     }
   }
 ],
