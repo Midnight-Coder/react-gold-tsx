@@ -8,13 +8,16 @@ import React from 'react';
 
 interface IProps {
   title: string;
-  subtitle: string | undefined;
+  subtitle?: string;
   Icon?: ((props: SvgIconProps) => JSX.Element) | null;
+  sx?: Record<string, unknown> | null;
 }
 
-export default function PageHeader({ title, subtitle, Icon = null }: IProps) {
+export default function PageHeader({
+  title, subtitle, Icon = null, sx = null,
+}: IProps) {
   return (
-    <Grid container alignItems='center'>
+    <Grid container alignItems='center' sx={sx}>
       <Grid item xs={12} md={6} lg={8}>
         <Typography variant='h1'>
           {Icon ? (

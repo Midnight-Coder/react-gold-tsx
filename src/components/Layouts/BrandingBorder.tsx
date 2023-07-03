@@ -1,19 +1,11 @@
-import styled from '@emotion/styled';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import logo from 'assets/logo.svg';
 import React from 'react';
 
-
-const ShadedHr = styled.hr`
-  border: 0;
-  box-shadow: ${({ theme }) => `10px 15px 10px -10px ${theme.palette.primary.main} inset`};
-  height: 10px;
-`;
 
 export default function BrandingBorder({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
@@ -38,13 +30,6 @@ export default function BrandingBorder({ children }: { children: React.ReactNode
       >
         {children}
       </Box>
-      <footer>
-        <Box mt={1} mr={5} textAlign='right'>
-          <Typography variant='body2' sx={{ display: 'inline' }}>Powered by&nbsp;</Typography>
-          <Typography variant='h4' sx={{ display: 'inline' }}>{'super{set}'}</Typography>
-        </Box>
-        <ShadedHr />
-      </footer>
     </>
   );
 }
