@@ -3,8 +3,10 @@ import mixpanel from 'mixpanel-browser';
 import posthog from 'posthog-js';
 
 
+const isDev = process.env.REACT_APP_ENV === 'DEV';
+
 export function init() {
-  if (process.env.REACT_APP_ENV === 'DEV') {
+  if (isDev) {
     return;
   }
   initPosthog();
@@ -12,7 +14,7 @@ export function init() {
 }
 
 export function reset() {
-  if (process.env.REACT_APP_ENV === 'DEV') {
+  if (isDev) {
     return;
   }
   posthog.reset();
@@ -20,11 +22,17 @@ export function reset() {
 }
 
 export function trackPageView() {
+  if (isDev) {
+    return;
+  }
   posthog.capture('$pageview');
   mixpanel.track_pageview();
 }
 
 export function trackEvents(eventName: EEvents, properties?: TEventProperties) {
+  if (isDev) {
+    return;
+  }
   posthog.capture(eventName, properties);
   mixpanel.track(eventName, properties);
 }
@@ -36,10 +44,12 @@ export function identifyUser({ userId, ...rest }: IIdentifyUserArgs) {
 
 function initPosthog() {
   const key = process.env.REACT_APP_POSTHOG_API_KEY || '';
+  console.log('instrumenting with posthog');
   posthog.init(key, { api_host: 'https://app.posthog.com' });
 }
 
 function initMixpanel() {
   const key = process.env.REACT_APP_MIXPANEL_API_KEY || '';
+  console.log('instrumenting with mixpanel');
   mixpanel.init(key, { persistence: 'localStorage' });
 }
