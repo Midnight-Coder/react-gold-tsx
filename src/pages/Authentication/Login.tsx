@@ -1,17 +1,11 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Hidden from '@mui/material/Hidden';
-import Paper from '@mui/material/Paper';
 import { useTheme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import brandingImg from 'assets/landing-bg.svg';
 import PageHeader from 'components/Common/PageHeader';
 import Spinner from 'components/Common/Spinner';
-import SignupButton from 'pages/Authentication/components/SignupButton';
-import * as React from 'react';
 import GoogleButton from 'react-google-button';
 import { Navigate } from 'react-router-dom';
 import { homepage } from 'utils/spaUrls';

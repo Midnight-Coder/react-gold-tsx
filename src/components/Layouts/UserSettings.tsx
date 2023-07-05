@@ -1,12 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { Button } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
 import Logout from 'pages/Authentication/Logout';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connections } from 'utils/spaUrls';
 
 
 export default function UserSettings() {
@@ -40,7 +42,7 @@ export default function UserSettings() {
           }}
         >
           <Logout />
-          <MenuItem><Typography color='primary'>Settings</Typography></MenuItem>
+          <MenuItem><Button color='primary' component={Link} to={connections.list}>Connnections</Button></MenuItem>
         </Menu>
       </>
     </Tooltip>
