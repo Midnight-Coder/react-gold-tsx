@@ -1,14 +1,22 @@
 import PrivateRoute from 'components/Common/PrivateRoute';
 import Borders from 'components/Layouts/Borders';
+import { trackPageView } from 'instrumentation/analytics';
 import AuthRouter from 'pages/Authentication/Router';
 import ConnectionRouter from 'pages/Connections/Router';
 import PageNotFound from 'pages/Exceptions/PageNotFound';
 import HomePage from 'pages/HomePage/HomePage';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import {
+  Navigate, Route, Routes, useLocation,
+} from 'react-router-dom';
 import * as spaUrls from 'utils/spaUrls';
 
 
 export default function Router() {
+  const location = useLocation();
+
+  React.useEffect(() => { trackPageView(); }, [location]);
+
   return (
     <Borders>
       <Routes>
