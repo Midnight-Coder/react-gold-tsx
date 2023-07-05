@@ -1,6 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
 import React from 'react';
 import { auth } from 'utils/spaUrls';
 
@@ -8,7 +6,7 @@ import { auth } from 'utils/spaUrls';
 export default function Logout() {
   const { logout } = useAuth0();
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || '';
-  const onLogout = React.useCallback(() => {
+  React.useEffect(() => {
     localStorage.clear();
     logout({
       clientId,
@@ -16,7 +14,5 @@ export default function Logout() {
     });
   }, [clientId, logout]);
 
-  return (
-    <MenuItem onClick={onLogout}><Typography color='primary'>Logout</Typography></MenuItem>
-  );
+  return null;
 }

@@ -1,14 +1,34 @@
 import Anchor from '@mui/icons-material/Anchor';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsInputComponent from '@mui/icons-material/SettingsInputComponent';
 import { NavTreeModel } from 'types/NavTreeModel';
 import * as spaUrl from 'utils/spaUrls';
 
 
-const NavTree: NavTreeModel = [
-  {
+export const allItems = {
+  connectionsList: {
+    name: 'Connections',
+    Icon: SettingsInputComponent,
+    spaUrl: spaUrl.connections.list,
+  },
+  landingPage: {
     name: 'Landing Page',
     Icon: Anchor,
     spaUrl: spaUrl.homepage,
   },
+  logout: {
+    name: 'Logout',
+    Icon: LogoutIcon,
+    spaUrl: spaUrl.auth.logout,
+  },
+};
+
+export const NavTree: NavTreeModel = [
+  allItems.landingPage,
 ];
 
-export default NavTree;
+export const UserMenuTree: NavTreeModel = [
+  allItems.connectionsList,
+  allItems.logout,
+];
+

@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import logo from 'assets/logo.svg';
 import { SideNavCtx } from 'components/Layouts/Borders';
 import React from 'react';
-import NavTree from 'utils/NavTree';
+import { NavTree } from 'utils/NavTree';
 
 
 export default function SideNav() {

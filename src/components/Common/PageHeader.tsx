@@ -1,20 +1,19 @@
-import { blueGrey } from '@mui/material/colors';
+import { SvgIconComponent } from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import { SvgIconProps } from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import { blueGrey } from '@mui/material/colors';
 
 
 interface IProps {
   title: string;
   subtitle?: string;
-  Icon?: ((props: SvgIconProps) => JSX.Element) | null;
+  Icon?: SvgIconComponent;
   sx?: Record<string, unknown> | null;
 }
 
 export default function PageHeader({
-  title, subtitle, Icon = null, sx = null,
+  title, subtitle, Icon, sx,
 }: IProps) {
   return (
     <Grid container alignItems='center' sx={sx}>
