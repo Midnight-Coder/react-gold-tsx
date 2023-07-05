@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { reset } from 'analytics';
+import { reset } from 'instrumentation/analytics';
 import React from 'react';
 import { auth } from 'utils/spaUrls';
 
