@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import exceptionImg from 'assets/error-500.png';
 import BrandingBorder from 'components/Layouts/BrandingBorder';
 import React, { ErrorInfo, ReactNode } from 'react';
@@ -42,15 +41,13 @@ class ErrorBoundary extends React.Component <IProps, IState> {
         <BrandingBorder>
           <Box textAlign='center' mt={3} mx='20%'>
             <Stack spacing={2}>
-              <Typography variant='h2'>Oops! Something went wrong</Typography>
-              <Link to={`mailto:${helpEmail}`}>{`Please contact us: ${helpEmail}`}</Link>
               <Paper elevation={0}><img src={exceptionImg} alt='Exception' /></Paper>
+              <Link to={`mailto:${helpEmail}`}>{`Please contact us: ${helpEmail}`}</Link>
               <Button
                 color='primary'
                 href={homepage}
-                size='small'
                 startIcon={<Home />}
-                variant='contained'
+                size='large'
               >
                 Take Me Home
               </Button>

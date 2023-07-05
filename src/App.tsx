@@ -1,6 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import ErrorBoundary from 'components/Common/ErrorBoundary';
 import Auth0ProviderWithHistory from 'pages/Authentication/components/Auth0-provider-with-history';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
