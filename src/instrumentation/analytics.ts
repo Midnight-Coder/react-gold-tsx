@@ -21,7 +21,7 @@ export function reset() {
 
 export function trackPageView() {
   posthog.capture('$pageview');
-  mixpanel.trackPageView();
+  mixpanel.track_pageview();
 }
 
 export function trackEvents(eventName: EEvents, properties?: TEventProperties) {
