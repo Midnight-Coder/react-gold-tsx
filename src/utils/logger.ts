@@ -1,4 +1,5 @@
 import { CacheKeys } from 'utils/constants';
+import { v4 } from 'uuid';
 
 
 export enum levels {
@@ -11,16 +12,20 @@ export interface LogObject {
   errorCode: string;
   level: levels;
   pageUrl: string;
-  userID: string;
+  sessionId: string;
+  userId: string;
 }
 
 const getLogObject = (level: levels, errorCode: string): LogObject => {
-  const userID = localStorage.getItem(CacheKeys.userId) || 'unknown-user';
+  const userId = localStorage.getItem(CacheKeys.userId) || 'unknown-user';
+  const sessionId = localStorage.getItem(CacheKeys.sessionId) || v4();
+  localStorage.setItem(CacheKeys.sessionId, sessionId);
   return {
     errorCode,
     level,
     pageUrl: `${window.location.hostname}${window.location.pathname}`,
-    userID,
+    sessionId,
+    userId,
   };
 };
 
