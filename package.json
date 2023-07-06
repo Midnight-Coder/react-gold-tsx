@@ -1,7 +1,7 @@
 {
   "name": "gogo",
   "author": "Midnight-Coder",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.1.0 ",

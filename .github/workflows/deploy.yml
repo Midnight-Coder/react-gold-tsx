@@ -27,7 +27,7 @@ jobs:
         run: npm run ci
 
       - name: Set Version Tag
-        run: echo "TAG='v'$(cat package.json | grep '"version":' | awk -F'"' '{print $4; exit;}')" >> $GITHUB_ENV
+        run: echo "TAG=v$(cat package.json | grep '"version":' | awk -F'"' '{print $4; exit;}')" >> $GITHUB_ENV
       
       - name: Create Tag
         run: git tag $TAG
