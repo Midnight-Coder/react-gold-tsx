@@ -44,12 +44,10 @@ export function identifyUser({ userId, ...rest }: IIdentifyUserArgs) {
 
 function initPosthog() {
   const key = process.env.REACT_APP_POSTHOG_API_KEY || '';
-  console.log('instrumenting with posthog');
   posthog.init(key, { api_host: 'https://app.posthog.com' });
 }
 
 function initMixpanel() {
   const key = process.env.REACT_APP_MIXPANEL_API_KEY || '';
-  console.log('instrumenting with mixpanel');
   mixpanel.init(key, { persistence: 'localStorage' });
 }

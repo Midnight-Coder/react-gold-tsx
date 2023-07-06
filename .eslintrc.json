@@ -36,7 +36,11 @@
           "tsx": "never"
         }],
       "import/newline-after-import": ["error", { "count": 2 }],
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "import/no-extraneous-dependencies": ["error", {
+        "devDependencies": ["**/*.test.ts", "**/*.test.tsx"],
+         "optionalDependencies": false,
+         "peerDependencies": false
+        }],
       "jsx-quotes": ["error", "prefer-single"],
       "no-else-return": ["off"],
       "no-multiple-empty-lines": ["error", { "max": 2 }],
