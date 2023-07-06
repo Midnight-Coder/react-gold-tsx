@@ -6,38 +6,31 @@ import posthog from 'posthog-js';
 const isDev = process.env.REACT_APP_ENV === 'DEV';
 
 export function init() {
-  if (isDev) {
-    return;
-  }
+  if (isDev) { return; }
   initPosthog();
   initMixpanel();
 }
 
 export function reset() {
-  if (isDev) {
-    return;
-  }
+  if (isDev) { return; }
   posthog.reset();
   mixpanel.reset();
 }
 
 export function trackPageView() {
-  if (isDev) {
-    return;
-  }
+  if (isDev) { return; }
   posthog.capture('$pageview');
   mixpanel.track_pageview();
 }
 
 export function trackEvents(eventName: EEvents, properties?: TEventProperties) {
-  if (isDev) {
-    return;
-  }
+  if (isDev) { return; }
   posthog.capture(eventName, properties);
   mixpanel.track(eventName, properties);
 }
 
 export function identifyUser({ userId, ...rest }: IIdentifyUserArgs) {
+  if (isDev) { return; }
   posthog.identify(userId, { set: rest?.set }, { setOnce: rest?.setOnce });
   mixpanel.identify(userId);
 }

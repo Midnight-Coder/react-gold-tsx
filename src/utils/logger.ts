@@ -8,16 +8,16 @@ export enum levels {
 }
 
 export interface LogObject {
-  action: string;
+  errorCode: string;
   level: levels;
   pageUrl: string;
   userID: string;
 }
 
-const getLogObject = (level: levels, action: string): LogObject => {
+const getLogObject = (level: levels, errorCode: string): LogObject => {
   const userID = localStorage.getItem(CacheKeys.userId) || 'unknown-user';
   return {
-    action,
+    errorCode,
     level,
     pageUrl: `${window.location.hostname}${window.location.pathname}`,
     userID,
@@ -31,8 +31,8 @@ const handleLogging = (logObject: LogObject, args?: unknown) => {
   console[logObject.level](logObject, args);
 };
 
-const log = (level: levels) => (action: string, args?: unknown) => {
-  const logObject = getLogObject(level, action);
+const log = (level: levels) => (errorCode: string, args?: unknown) => {
+  const logObject = getLogObject(level, errorCode);
   handleLogging(logObject, args);
 };
 
