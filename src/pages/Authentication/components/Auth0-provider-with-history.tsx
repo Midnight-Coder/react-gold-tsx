@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { ReactNode } from 'react';
 import { auth } from 'utils/spaUrls';
@@ -16,7 +15,7 @@ export default function Auth0ProviderWithHistory({ children }: {children: ReactN
       clientId={clientId}
       domain={domain}
       useRefreshTokens
-      useRefreshTokensFallback={false}
+      useRefreshTokensFallback
       authorizationParams={{ audience, scope: 'openid profile email', redirect_uri: landingPadUri }}
     >
       {children}

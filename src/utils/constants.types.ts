@@ -3,6 +3,7 @@ export type CacheKeysModel = {
   orgId: string;
   profileSrc: string;
   sessionId: string;
+  token: string;
   userId: string;
 };
 
