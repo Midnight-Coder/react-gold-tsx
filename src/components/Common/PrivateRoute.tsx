@@ -24,7 +24,6 @@ export default function PrivateRoute({ outlet } : {outlet: JSX.Element}) {
       }
       catch (error) {
         if (error instanceof Error) {
-          console.log(error);
           Logger.error(ErrorCodes.auth.auth0GetToken, error.message);
         }
         navigate(auth.login);
