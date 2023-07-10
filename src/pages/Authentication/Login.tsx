@@ -26,17 +26,15 @@ export default function Login() {
     <Box>
       <PageHeader title='SuperCMO' />
       <Box mt='3%' mb='10px' />
-      <Grid container spacing={2} justifyContent='center' alignContent='center'>
+      <Grid container spacing={2}>
         <Hidden smDown>
-          <Grid item sm={5}>
-            <LandingBg />
-          </Grid>
+          <Grid item sm={5} lg={8}><LandingBg /></Grid>
         </Hidden>
         <Grid item xs={10} sm={5} lg={3} sx={{ mt: '10%' }}>
           <GoogleButton
             label={buttonLabel}
             onClick={() => loginWithRedirect()}
-            type={theme.palette.mode}
+            type='dark'
           />
         </Grid>
       </Grid>
