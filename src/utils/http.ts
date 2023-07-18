@@ -27,8 +27,19 @@ const fetchWrapper = async (url: string, { method, ...rest }: IFetchParams) => {
       credentials: 'include',
       ...rest,
     });
-    if (!response.ok) { throw new Error('err'); }
-    return await response.json();
+    if (!response.ok) {
+      let message = response.statusText;
+      if (response.status >= 400 && response.status < 500) {
+        // Assumes API standardizes error responses to { message: string }
+        message = (await response.json()).message;
+      }
+      throw new Error(message);
+    }
+    else if (response.headers.get('content-length') === '0') {
+      // Handles HTTP 201, 204 -> no content responses
+      return {};
+    }
+    else { return await response.json(); }
   }
   catch (err) {
     /* Catch network/non-API errors */
