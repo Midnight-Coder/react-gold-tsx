@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -17,10 +14,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18.9.1
+      - name: Use Node.js 18.10.0
         uses: actions/setup-node@v3
         with:
-          node-version: 18.9.1
+          node-version: 18.10.0
           cache: 'npm'
 
       - name: Install Node Dependencies
@@ -29,14 +26,11 @@ jobs:
       - name: Run Tests
         run: npm run ci
 
-      - name: Login into Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-      - name: Docker Tag
-        run: echo "TAG=$(cat package.json | grep '"version":' | awk -F'"' '{print $4; exit;}')" >> $GITHUB_ENV
-
-      - name: Build the Docker Image
-        if: github.ref == 'refs/heads/main'
-        run: |
-          docker buildx create --name shadowfax --use
-          DOCKER_BUILDKIT=1 docker buildx build --platform linux/amd64,linux/arm64 -t "${{ secrets.DOCKER_REPOSITORY }}/react-gold-tsx:latest" -t "${{ secrets.DOCKER_REPOSITORY }}/react-gold-tsx:${TAG}" --push .
+      - name: Set Version Tag
+        run: echo "TAG=v$(cat package.json | grep '"version":' | awk -F'"' '{print $4; exit;}')" >> $GITHUB_ENV
+      
+      - name: Create Tag
+        run: git tag $TAG
+      
+      - name: Push Tag
+        run: git push origin $TAG

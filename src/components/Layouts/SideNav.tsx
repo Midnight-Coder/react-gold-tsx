@@ -11,11 +11,11 @@ import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import logo from 'assets/logo.png';
 import logoSm from 'assets/logoSm.png';
 import { SideNavCtx } from 'components/Layouts/Borders';
 import React from 'react';
-import NavTree from 'utils/NavTree';
+import { NavTree } from 'utils/NavTree';
+import logo from 'assets/logo.png';
 
 
 export default function SideNav() {
@@ -51,7 +51,7 @@ export default function SideNav() {
       <Divider />
       <List>
         {NavTree.map((navItem) => {
-          const Icon = navItem.icon;
+          const { Icon } = navItem;
           return (
             <Tooltip title={navItem.name} key={navItem.name}>
               <ListItemButton component='a' href={navItem.spaUrl} divider>

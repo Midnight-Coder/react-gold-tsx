@@ -1,20 +1,29 @@
-import { blueGrey } from '@mui/material/colors';
+import { SvgIconComponent } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import { SvgIconProps } from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import { blueGrey } from '@mui/material/colors';
+import BreadcrumbsNavigation, { TBreadcrumb } from 'components/Common/BreadcrumbsNavigation';
+import { Link } from 'react-router-dom';
+import { AllPageTitles } from 'utils/NavTree';
 
 
-interface IProps {
-  title: string;
-  subtitle: string | undefined;
-  Icon?: ((props: SvgIconProps) => JSX.Element) | null;
+type Props = {
+  title: AllPageTitles | 'SuperCMO';
+  subtitle?: string;
+  Icon?: SvgIconComponent;
+  sx?: Record<string, unknown> | null;
+  createLink?: string;
+  breadcrumbs?: TBreadcrumb[];
 }
 
-export default function PageHeader({ title, subtitle, Icon = null }: IProps) {
+export default function PageHeader({
+  title, subtitle, Icon, sx, createLink, breadcrumbs,
+}: Props) {
   return (
-    <Grid container alignItems='center'>
+    <Grid container sx={sx}>
       <Grid item xs={12} md={6} lg={8}>
         <Typography variant='h1'>
           {Icon ? (
@@ -26,9 +35,29 @@ export default function PageHeader({ title, subtitle, Icon = null }: IProps) {
           {title}
         </Typography>
       </Grid>
+      { createLink ? (
+        <Grid item xs={12} md={5} lg={3} textAlign='right'>
+          <Button
+            color='primary'
+            component={Link}
+            to={createLink}
+            variant='contained'
+          >
+            Create New
+          </Button>
+        </Grid>
+      ) : null}
+
       <Grid item xs={12}>
         <Divider sx={{ backgroundColor: blueGrey[300], height: '3px' }} />
       </Grid>
+      {breadcrumbs ? (
+        <Grid item xs={12} md={6} lg={4}>
+          <Box display='flex' justifyContent='flex-end' alignItems='center'>
+            <BreadcrumbsNavigation items={breadcrumbs} />
+          </Box>
+        </Grid>
+      ) : null}
       <Grid item xs={12}>
         {subtitle ? (
           <Typography color='primary' sx={{ ml: 5 }} variant='h4'>{subtitle}</Typography>

@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import UserSettings from 'components/Layouts/UserSettings';
-import React from 'react';
 
 
 export default function Header() {

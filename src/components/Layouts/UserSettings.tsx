@@ -1,12 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
-import Logout from 'pages/Authentication/Logout';
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { UserMenuTree } from 'utils/NavTree';
 
 
 export default function UserSettings() {
@@ -39,8 +41,17 @@ export default function UserSettings() {
             textTransform: 'none',
           }}
         >
-          <Logout />
-          <MenuItem><Typography color='primary'>Settings</Typography></MenuItem>
+          {UserMenuTree.map((item) => {
+            const { Icon } = item;
+            return (
+              <MenuItem key={item.name}>
+                <Link color='inherit' component={RouterLink} to={item.spaUrl} underline='none'>
+                  <ListItemIcon><Icon fontSize='small' /></ListItemIcon>
+                  {item.name}
+                </Link>
+              </MenuItem>
+            );
+          })}
         </Menu>
       </>
     </Tooltip>

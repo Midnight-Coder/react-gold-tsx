@@ -14,6 +14,7 @@ interface ISideNavCtx {
 
 export const SideNavCtx = React.createContext<Partial<ISideNavCtx>>({});
 
+
 export default function Borders({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
   const { isAuthenticated, isLoading } = useAuth0();

@@ -1,14 +1,24 @@
+import { retrieve } from 'utils/cacheUtils';
+import { CacheKeys } from 'utils/constants';
+import { Logger } from 'utils/logger';
+import { v4 as uuidv4 } from 'uuid';
+
+
 interface IFetchParams {
   method: string,
   [k: string]: string | number | undefined
 }
-// eslint-disable-next-line no-underscore-dangle
-const _fetch = async (url: string, { method, ...rest }: IFetchParams) => {
+const fetchWrapper = async (url: string, { method, ...rest }: IFetchParams) => {
+  const requestId = uuidv4();
+  const sessionId = retrieve(CacheKeys.sessionId, { setToIfNull: uuidv4() });
   const headers = new Headers();
   headers.set('Accept', 'application/json');
   headers.set('Access-Control-Allow-Credentials', 'true');
   headers.set('Access-Control-Allow-Origin', 'true');
   headers.set('Content-Type', 'application/json');
+  headers.set('Authorization', `Bearer ${localStorage.getItem(CacheKeys.token)}`);
+  headers.set('X-Request-ID', requestId);
+  headers.set('X-Session-ID', sessionId);
 
   try {
     const response = await fetch(url, {
@@ -17,30 +27,32 @@ const _fetch = async (url: string, { method, ...rest }: IFetchParams) => {
       credentials: 'include',
       ...rest,
     });
+    if (!response.ok) { throw new Error('err'); }
     return await response.json();
   }
   catch (err) {
     /* Catch network/non-API errors */
-    return { error: 'Could not establish link with server' };
+    Logger.error(`Request to ${url} failed`, err);
+    throw err;
   }
 };
 
 const http = {
-  delete: async (url: string) => _fetch(url, { method: 'DELETE' }),
+  delete: async (url: string) => fetchWrapper(url, { method: 'DELETE' }),
 
-  get: async (url: string) => _fetch(url, { method: 'GET' }),
+  get: async (url: string) => fetchWrapper(url, { method: 'GET' }),
 
-  patch: async (url: string, payload: object) => _fetch(
+  patch: async (url: string, payload: object) => fetchWrapper(
     url,
     { method: 'PATCH', body: JSON.stringify(payload) },
   ),
 
-  post: async (url: string, payload: object) => _fetch(
+  post: async (url: string, payload: object) => fetchWrapper(
     url,
     { method: 'POST', body: JSON.stringify(payload) },
   ),
 
-  put: async (url: string, payload: object) => _fetch(
+  put: async (url: string, payload: object) => fetchWrapper(
     url,
     { method: 'PUT', body: JSON.stringify(payload) },
   ),
