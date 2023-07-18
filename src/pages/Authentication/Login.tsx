@@ -13,7 +13,6 @@ import { homepage } from 'utils/spaUrls';
 
 export default function Login() {
   const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
-  const theme = useTheme();
   const buttonLabel = 'Get Started';
 
   if (isLoading) {
@@ -24,7 +23,7 @@ export default function Login() {
   }
   return (
     <Box>
-      <PageHeader title='SuperCMO' />
+      <PageHeader title='React Gold' subtitle='Built with ts(x), MUI, React-Router, Auth0 & React Query' />
       <Box mt='3%' mb='10px' />
       <Grid container spacing={2}>
         <Hidden smDown>

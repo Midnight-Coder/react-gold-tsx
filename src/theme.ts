@@ -1,6 +1,6 @@
 import { PaletteMode } from '@mui/material';
 import {
-  blueGrey, orange, deepOrange, red,
+  blueGrey, orange, deepOrange, red, yellow, amber,
 } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import { CacheKeys } from 'utils/constants';
@@ -36,7 +36,7 @@ const Theme = createTheme({
   palette: {
     mode: localStorage.getItem(CacheKeys.enableDarkMode) ? 'dark' : 'light' as PaletteMode,
     primary: {
-      main: deepOrange[500],
+      main: amber[800],
     },
     secondary: {
       main: orange[500],

@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import { useTheme } from '@mui/material/styles';
 import FooterBg from 'assets/FooterBg';
-import logo from 'assets/logo.svg';
+import logo from 'assets/logo.png';
 import React from 'react';
 
 

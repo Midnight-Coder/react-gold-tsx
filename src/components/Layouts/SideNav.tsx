@@ -11,10 +11,11 @@ import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import logo from 'assets/logo.svg';
+import logoSm from 'assets/logoSm.png';
 import { SideNavCtx } from 'components/Layouts/Borders';
 import React from 'react';
 import { NavTree } from 'utils/NavTree';
+import logo from 'assets/logo.png';
 
 
 export default function SideNav() {
@@ -36,7 +37,7 @@ export default function SideNav() {
           <Grid item xs={9}>
             {isFullNav
               ? (<img height={theme.custom.appBarHeight} src={logo} alt='' />)
-              : (<img src={logo} alt='' />)}
+              : (<img src={logoSm} alt='' />)}
           </Grid>
           {setIsFullNav ? (
             <Grid item xs={3}>
