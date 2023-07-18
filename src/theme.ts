@@ -1,6 +1,9 @@
 import { PaletteMode } from '@mui/material';
 import {
-  blueGrey, orange, deepOrange, red, yellow, amber,
+  amber,
+  blueGrey,
+  orange,
+  red,
 } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import { CacheKeys } from 'utils/constants';

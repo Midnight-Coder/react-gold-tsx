@@ -2,7 +2,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Hidden from '@mui/material/Hidden';
-import { useTheme } from '@mui/material/styles';
 import LandingBg from 'assets/LandingBg';
 import PageHeader from 'components/Common/PageHeader';
 import Spinner from 'components/Common/Spinner';
