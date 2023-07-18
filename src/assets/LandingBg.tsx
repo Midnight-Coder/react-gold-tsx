@@ -1,4 +1,4 @@
-import { useTheme } from '@emotion/react';
+import { useTheme } from '@mui/material';
 
 
 export default function LandingBg() {

@@ -5,19 +5,25 @@ import SettingsInputComponent from '@mui/icons-material/SettingsInputComponent';
 import * as spaUrl from 'utils/spaUrls';
 
 
-type NavItemModel = {
+type TNavItemModel = {
   name: string;
   Icon: SvgIconComponent;
   spaUrl: string;
+  createLink?: string;
 }
 
-type NavTreeModel = NavItemModel[];
+type TNavTreeModel = TNavItemModel[];
 
-export const allItems = {
+type TAllItems = {
+  [key: string]: TNavItemModel;
+};
+
+export const allItems: TAllItems = {
   connectionsList: {
     name: 'Connections',
     Icon: SettingsInputComponent,
     spaUrl: spaUrl.connections.list,
+    createLink: '/do-it-yourself',
   },
   landingPage: {
     name: 'Landing Page',
@@ -31,12 +37,18 @@ export const allItems = {
   },
 };
 
-export const NavTree: NavTreeModel = [
+export const NavTree: TNavTreeModel = [
   allItems.landingPage,
 ];
 
-export const UserMenuTree: NavTreeModel = [
+export const UserMenuTree: TNavTreeModel = [
   allItems.connectionsList,
   allItems.logout,
 ];
+
+
+const allTitles = Object.values(allItems).map((item) => item.name);
+
+export type AllPageTitles = typeof allTitles[number]
+
 

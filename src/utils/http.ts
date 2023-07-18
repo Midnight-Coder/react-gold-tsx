@@ -1,5 +1,6 @@
 import { retrieve } from 'utils/cacheUtils';
 import { CacheKeys } from 'utils/constants';
+import { Logger } from 'utils/logger';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -26,11 +27,13 @@ const fetchWrapper = async (url: string, { method, ...rest }: IFetchParams) => {
       credentials: 'include',
       ...rest,
     });
+    if (!response.ok) { throw new Error('err'); }
     return await response.json();
   }
   catch (err) {
     /* Catch network/non-API errors */
-    return { error: 'Could not establish link with server' };
+    Logger.error(`Request to ${url} failed`, err);
+    throw err;
   }
 };
 
