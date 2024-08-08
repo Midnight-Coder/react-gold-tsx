@@ -14,10 +14,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18.10.0
+      - name: Use Node.js 20.0.0
         uses: actions/setup-node@v3
         with:
-          node-version: 18.10.0
+          node-version: 20.0.0
           cache: 'npm'
 
       - name: Install Node Dependencies
@@ -28,9 +28,9 @@ jobs:
 
       - name: Set Version Tag
         run: echo "TAG=v$(cat package.json | grep '"version":' | awk -F'"' '{print $4; exit;}')" >> $GITHUB_ENV
-      
+
       - name: Create Tag
         run: git tag $TAG
-      
+
       - name: Push Tag
         run: git push origin $TAG

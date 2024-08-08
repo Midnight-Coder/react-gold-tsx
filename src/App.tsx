@@ -1,7 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Router from 'Router';
 import AppAlerts from 'components/Common/AppAlerts';
 import ErrorBoundary from 'components/Common/ErrorBoundary';
@@ -11,8 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Theme from 'theme';
 import { CacheKeys } from 'utils/constants';
 
-
-const queryClient = new QueryClient();
 
 export default function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -28,18 +25,16 @@ export default function App() {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <Auth0ProviderWithHistory>
-            <ThemeProvider theme={Theme}>
-              <CssBaseline enableColorScheme />
-              <AppAlerts>
-                <ErrorBoundary>
-                  <Router />
-                </ErrorBoundary>
-              </AppAlerts>
-            </ThemeProvider>
-          </Auth0ProviderWithHistory>
-        </QueryClientProvider>
+        <Auth0ProviderWithHistory>
+          <ThemeProvider theme={Theme}>
+            <CssBaseline enableColorScheme />
+            <AppAlerts>
+              <ErrorBoundary>
+                <Router />
+              </ErrorBoundary>
+            </AppAlerts>
+          </ThemeProvider>
+        </Auth0ProviderWithHistory>
       </BrowserRouter>
     </React.StrictMode>
   );
