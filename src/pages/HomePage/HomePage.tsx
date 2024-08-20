@@ -1,8 +1,10 @@
-import { Button } from '@mui/material';
+import { ListItem } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import PageHeader from 'components/Common/PageHeader';
+import List from '@mui/material/List';
+import React from 'react';
+import { allPages } from 'components/HtmlLoader';
 import { Link } from 'react-router-dom';
-import { connections } from 'utils/spaUrls';
 
 
 export default function HomePage() {
@@ -12,7 +14,11 @@ export default function HomePage() {
         <PageHeader title='Getting Started' />
       </Grid>
       <Grid item xs={12}>
-        <Button component={Link} to={connections.list} variant='contained' color='primary'>Create Connections</Button>
+        <List>
+          {Object.keys(allPages).map((i) => (
+            <ListItem key={i} component={Link} to={`/demo/${i}`}>{i}</ListItem>
+          ))}
+        </List>
       </Grid>
     </Grid>
   );

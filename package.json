@@ -4,18 +4,15 @@
   "version": "2.1.0",
   "private": true,
   "dependencies": {
-    "@auth0/auth0-react": "^2.1.0 ",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
-    "mixpanel-browser": "^2.47.0",
-    "posthog-js": "^1.69.0",
+    "dangerously-set-html-content": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
-    "react-router-dom": "^6.2.2",
-    "uuid": "^9.0.0"
+    "react-router-dom": "^6.2.2"
   },
   "scripts": {
     "build": "react-scripts build",

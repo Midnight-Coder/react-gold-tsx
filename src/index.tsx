@@ -1,5 +1,4 @@
 import App from 'App';
-import { init as initAnalytics } from 'instrumentation/analytics';
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -12,4 +11,3 @@ root.render(
     <App />
   </React.StrictMode>,
 );
-initAnalytics();
